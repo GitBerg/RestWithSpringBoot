@@ -9,11 +9,14 @@ import org.springframework.hateoas.mediatype.collectionjson.CollectionJsonLinkDi
 import org.springframework.plugin.core.SimplePluginRegistry;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Configuration
@@ -33,8 +36,17 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("br.com.erudio.restwithspringbootudemy"))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .apiInfo(apiInfo());
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfo("Restful, API with Spring Boot 2.4.4",
+                "Alguma descrição sobre a API.",
+                "v1",
+                "Termos de serviço", new Contact("Gutemberg","www.gutemberg.com", "youremail@gmail.com"),
+                "Licença da API", "Liceça da URL", Collections.emptyList());
     }
 }

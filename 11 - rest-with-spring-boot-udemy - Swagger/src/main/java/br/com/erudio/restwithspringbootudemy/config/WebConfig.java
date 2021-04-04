@@ -25,7 +25,7 @@ public class WebConfig implements WebMvcConfigurer {
 
         //Extension
 
-       /* configurer.favorParameter(false).ignoreAcceptHeader(false)
+      /*  configurer.favorParameter(false).ignoreAcceptHeader(false)
                 .defaultContentType(MediaType.APPLICATION_JSON).mediaType("json",
                 MediaType.APPLICATION_JSON).mediaType("xml", MediaType.APPLICATION_XML);
     }*/
@@ -38,13 +38,16 @@ public class WebConfig implements WebMvcConfigurer {
                 .mediaType("json", MediaType.APPLICATION_JSON)
                 .mediaType("xml", MediaType.APPLICATION_XML);*/
 
+
+        //Header
+
         configurer.favorParameter(false).ignoreAcceptHeader(false)
                 .useRegisteredExtensionsOnly(false)
                 .defaultContentType(MediaType.APPLICATION_JSON)
                 .mediaType("json", MediaType.APPLICATION_JSON)
                 .mediaType("xml", MediaType.APPLICATION_XML)
                 .mediaType("x-yaml", MEDIA_TYPE_YML);
-}
+          }
 
 
 
