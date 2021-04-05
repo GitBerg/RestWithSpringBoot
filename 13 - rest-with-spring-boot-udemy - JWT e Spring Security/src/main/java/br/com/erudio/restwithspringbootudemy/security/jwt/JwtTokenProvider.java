@@ -18,6 +18,7 @@ import java.util.Date;
 import java.util.List;
 import io.jsonwebtoken.Jwts;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 @Service
@@ -33,7 +34,9 @@ public class JwtTokenProvider {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @PostConstruct
     public void init(){
+
         secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
     }
 
